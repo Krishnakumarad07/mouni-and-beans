@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mouni & Beans | About Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #c59d5f;
+      --primary-light: rgba(197, 157, 95, 0.12);
+      --accent-gold: #e5b94c;
+      --bg-dark: #0b0704;
+      --bg-card: #150e09;
+      --bg-card-hover: #1e140d;
+      --border-color: rgba(197, 157, 95, 0.16);
+      --text-main: #fcf9f6;
+      --text-muted: #b8aba0;
+      --text-light: #eae0d5;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-md: 18px;
+      --radius-lg: 28px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      font-family: var(--font-body); background: var(--bg-dark);
+      color: var(--text-main); line-height: 1.6; overflow-x: hidden;
+    }
+
+    .ambient-glow {
+      position: fixed; top: -100px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(197,157,95,0.09) 0%, rgba(226,122,63,0.04) 40%, rgba(0,0,0,0) 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    .container {
+      max-width: 1240px; margin: 0 auto;
+      padding: 3rem 1.5rem 5rem 1.5rem;
+      position: relative; z-index: 1;
+    }
+
+    /* Section Headers */
+    .section-header { text-align: center; max-width: 720px; margin: 0 auto 3.5rem auto; }
+    .section-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      text-transform: uppercase; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 2px; color: var(--primary);
+      background: var(--primary-light); padding: 0.38rem 1.1rem;
+      border-radius: 50px; margin-bottom: 0.85rem;
+      border: 1px solid var(--border-color);
+    }
+    .section-title {
+      font-family: var(--font-heading); font-size: 2.6rem; font-weight: 700;
+      color: var(--text-main); margin-bottom: 1rem; line-height: 1.22;
+    }
+    .section-subtitle { color: var(--text-muted); font-size: 1.05rem; }
+
+    /* Story Grid */
+    .story-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center; margin-bottom: 5rem;
+    }
+    .about-gallery {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
+    }
+    .about-gallery img {
+      width: 100%; height: 220px; object-fit: cover;
+      border-radius: var(--radius-md); border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+    .about-gallery img:hover { transform: scale(1.03); }
+    .about-gallery img:nth-child(2) { margin-top: 1.5rem; }
+    .story-content h3 {
+      font-family: var(--font-heading); font-size: 2.2rem;
+      margin-bottom: 1.2rem; line-height: 1.3;
+    }
+    .story-content p {
+      color: var(--text-muted); margin-bottom: 1.2rem; font-size: 1rem;
+    }
+
+    /* Btn */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.6rem; font-family: var(--font-body);
+      font-size: 0.9rem; font-weight: 600; border-radius: 30px;
+      text-decoration: none; cursor: pointer; transition: var(--transition); border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #a67c3b);
+      color: #0b0704; box-shadow: 0 4px 18px rgba(197,157,95,0.35);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #dfb777, var(--primary));
+      transform: translateY(-2px);
+    }
+
+    /* Value Cards */
+    .value-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem; margin-top: 3rem;
+    }
+    .value-card {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: var(--radius-md); padding: 2rem;
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      transition: var(--transition);
+    }
+    .value-card:hover {
+      border-color: var(--primary); transform: translateY(-4px);
+    }
+    .value-card i {
+      font-size: 1.8rem; color: var(--primary); margin-top: 0.2rem;
+    }
+    .value-card h4 {
+      font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 0.5rem;
+    }
+    .value-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+    @media (max-width: 992px) {
+      .story-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 600px) {
+      .container { padding: 2rem 1rem 3rem 1rem; }
+      .section-title { font-size: 2rem; }
+      .story-content h3 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Our Heritage & Passion</span>
+      <h2 class="section-title">The Story Behind Mouni & Beans</h2>
+      <p class="section-subtitle">A humble obsession with botanical origins, precision temperatures, and bringing community together.</p>
+    </div>
+
+    <div class="story-grid">
+      <div class="about-gallery">
+        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=800&auto=format&fit=crop" alt="Coffee beans roasting" />
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop" alt="Barista preparing latte" />
+      </div>
+      <div class="story-content">
+        <div class="section-badge"><i class="fa-solid fa-award"></i> Established in 2021</div>
+        <h3>Where Heart Meets The Perfect Roast</h3>
+        <p>
+          Founded by coffee connoisseurs, <strong>Mouni & Beans</strong> started as a cozy pop-up stall with a single vintage espresso machine and a dream: to serve coffee that honors the meticulous craft of coffee planters and roasters.
+        </p>
+        <p>
+          Today, Mouni & Beans has flourished into a beloved urban sanctuary. We treat every roast profile like fine chemistry and art — dialing in grind sizes, water mineral balance, and roasting curves to accentuate the terroir of every bean.
+        </p>
+        <div style="margin-top: 1.8rem;">
+          <span class="btn btn-primary"><i class="fa-solid fa-bag-shopping"></i> View Our Blends</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand Values -->
+    <div class="section-header" style="margin-bottom: 2rem;">
+      <h3 class="section-title" style="font-size: 2rem;">Our Core Pillars</h3>
+    </div>
+
+    <div class="value-cards">
+      <div class="value-card">
+        <i class="fa-solid fa-earth-americas"></i>
+        <div>
+          <h4>100% Eco-Conscious</h4>
+          <p>All takeaway cups, bags, and straws are fully biodegradable and compostable.</p>
+        </div>
+      </div>
+      <div class="value-card">
+        <i class="fa-solid fa-medal"></i>
+        <div>
+          <h4>Certified Q-Graders</h4>
+          <p>Our coffee scores 86+ points on the international Specialty Coffee scale.</p>
+        </div>
+      </div>
+      <div class="value-card">
+        <i class="fa-solid fa-heart"></i>
+        <div>
+          <h4>Community First</h4>
+          <p>We host weekly open-mic poetry, cupping workshops, and local artist exhibitions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

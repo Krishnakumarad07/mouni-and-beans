@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mouni & Beans | Home</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM (Google Sites Optimized — No JS)
+       ========================================================================== */
+    :root {
+      --primary: #c59d5f;
+      --primary-hover: #d3ad6f;
+      --primary-light: rgba(197, 157, 95, 0.12);
+      --accent-gold: #e5b94c;
+      --accent-emerald: #2ecc71;
+      --bg-dark: #0b0704;
+      --bg-card: #150e09;
+      --bg-card-hover: #1e140d;
+      --border-color: rgba(197, 157, 95, 0.16);
+      --surface-glass-border: rgba(197, 157, 95, 0.22);
+      --text-main: #fcf9f6;
+      --text-muted: #b8aba0;
+      --text-light: #eae0d5;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --shadow-sm: 0 4px 20px rgba(0,0,0,0.3);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.5);
+      --shadow-glow: 0 0 25px rgba(197, 157, 95, 0.25);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 28px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Background */
+    .ambient-glow {
+      position: fixed; top: -100px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(197,157,95,0.09) 0%, rgba(226,122,63,0.04) 40%, rgba(0,0,0,0) 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Promo Banner ── */
+    .promo-banner {
+      background: linear-gradient(90deg, #1b1007, #2c1a0e, #1b1007);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.6rem 1.2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-light);
+      position: relative;
+      z-index: 1;
+    }
+    .promo-code {
+      background: var(--primary-light);
+      border: 1px dashed var(--primary);
+      color: var(--primary);
+      padding: 0.15rem 0.6rem;
+      border-radius: 6px;
+      font-family: monospace;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 0.5rem; padding: 0.75rem 1.6rem;
+      font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
+      border-radius: 30px; text-decoration: none; cursor: pointer;
+      transition: var(--transition); border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #a67c3b);
+      color: #0b0704;
+      box-shadow: 0 4px 18px rgba(197,157,95,0.35);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #dfb777, var(--primary));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(197,157,95,0.5);
+    }
+    .btn-outline {
+      background: transparent; color: var(--primary);
+      border: 1.5px solid var(--primary);
+    }
+    .btn-outline:hover {
+      background: var(--primary); color: #0b0704;
+      transform: translateY(-2px);
+    }
+
+    /* ── Section Headers ── */
+    .section-header { text-align: center; max-width: 720px; margin: 0 auto 3rem auto; }
+    .section-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      text-transform: uppercase; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 2px; color: var(--primary);
+      background: var(--primary-light); padding: 0.38rem 1.1rem;
+      border-radius: 50px; margin-bottom: 0.85rem;
+      border: 1px solid var(--border-color);
+    }
+    .section-title {
+      font-family: var(--font-heading); font-size: 2.6rem; font-weight: 700;
+      color: var(--text-main); margin-bottom: 1rem; line-height: 1.22;
+    }
+    .section-subtitle { color: var(--text-muted); font-size: 1.05rem; }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero {
+      min-height: 75vh; display: flex; align-items: center;
+      padding: 2.5rem 0 3rem 0;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.15fr 0.85fr;
+      gap: 3.5rem; align-items: center;
+    }
+    .live-pill {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: rgba(46,204,113,0.12); border: 1px solid rgba(46,204,113,0.3);
+      padding: 0.35rem 0.9rem; border-radius: 30px;
+      font-size: 0.8rem; font-weight: 600; color: #2ecc71;
+      margin-bottom: 1.2rem;
+    }
+    .pulse-dot {
+      width: 8px; height: 8px; background: #2ecc71; border-radius: 50%;
+      box-shadow: 0 0 8px #2ecc71;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .hero-title {
+      font-family: var(--font-heading); font-size: 3.6rem;
+      font-weight: 700; line-height: 1.15; margin-bottom: 1.4rem;
+    }
+    .hero-title span {
+      background: linear-gradient(135deg, var(--primary), #ffd285);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      font-style: italic;
+    }
+    .hero-desc {
+      color: var(--text-muted); font-size: 1.1rem;
+      margin-bottom: 2rem; max-width: 530px; line-height: 1.7;
+    }
+    .hero-cta { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .hero-stats {
+      display: flex; gap: 2.5rem; padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .stat-item h4 {
+      font-family: var(--font-heading); font-size: 2.2rem;
+      color: var(--primary); margin-bottom: 0.2rem;
+    }
+    .stat-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+    .hero-img-wrap { position: relative; }
+    .hero-img-card {
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-md); border: 1px solid var(--surface-glass-border);
+    }
+    .hero-img-card img {
+      width: 100%; height: 470px; object-fit: cover; display: block;
+      transition: transform 0.6s ease;
+    }
+    .hero-img-card:hover img { transform: scale(1.04); }
+    .floating-badge {
+      position: absolute; bottom: -20px; left: -20px;
+      background: rgba(22,14,9,0.75); backdrop-filter: blur(14px);
+      padding: 1.2rem 1.5rem; border-radius: var(--radius-md);
+      border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);
+      display: flex; align-items: center; gap: 1rem;
+      animation: float 4.5s ease-in-out infinite;
+    }
+    .floating-badge .badge-icon { font-size: 1.8rem; color: var(--accent-gold); }
+    .floating-badge h5 { font-size: 1.05rem; font-weight: 700; }
+    .floating-badge p { font-size: 0.8rem; color: var(--text-muted); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    /* ==========================================================================
+       INTERACTIVE FLAVOR MATCHER (CSS-Only — No JavaScript)
+       Uses radio buttons + CSS sibling selectors to show/hide result cards
+       ========================================================================== */
+    .flavor-section {
+      margin-top: 5rem;
+      background: linear-gradient(145deg, #18100a, #0f0905);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.5rem;
+      position: relative; overflow: hidden;
+    }
+    .flavor-section::before {
+      content: ""; position: absolute; top: 0; right: 0;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(197,157,95,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Hide real radio inputs */
+    .flavor-radio { display: none; }
+
+    .flavor-options {
+      display: flex; gap: 1rem; justify-content: center;
+      flex-wrap: wrap; margin: 2rem 0;
+    }
+    .flavor-label {
+      background: rgba(255,255,255,0.03); border: 1px solid var(--border-color);
+      color: var(--text-light); padding: 0.75rem 1.4rem; border-radius: 30px;
+      font-size: 0.9rem; font-weight: 600; cursor: pointer;
+      transition: var(--transition); display: flex; align-items: center; gap: 0.5rem;
+      user-select: none;
+    }
+    .flavor-label:hover {
+      background: rgba(197,157,95,0.15); border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Highlight active radio label */
+    #flavor-velvet:checked ~ .flavor-options .flavor-label[for="flavor-velvet"],
+    #flavor-citrus:checked ~ .flavor-options .flavor-label[for="flavor-citrus"],
+    #flavor-cold:checked ~ .flavor-options .flavor-label[for="flavor-cold"],
+    #flavor-bold:checked ~ .flavor-options .flavor-label[for="flavor-bold"] {
+      background: var(--primary); color: #0b0704; border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(197,157,95,0.3);
+    }
+
+    /* Result cards — hide all by default */
+    .match-card { display: none; animation: fadeIn 0.4s ease; }
+    .match-card-inner {
+      background: rgba(11,7,4,0.8); border: 1px solid var(--surface-glass-border);
+      border-radius: var(--radius-md); padding: 1.8rem;
+      max-width: 650px; margin: 0 auto;
+      display: flex; gap: 1.5rem; align-items: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .match-card-inner img {
+      width: 100px; height: 100px; border-radius: 12px;
+      object-fit: cover; flex-shrink: 0; border: 1px solid var(--border-color);
+    }
+    .match-tag {
+      display: inline-block; background: rgba(11,7,4,0.85);
+      color: var(--accent-gold); padding: 0.25rem 0.75rem;
+      border-radius: 20px; font-size: 0.75rem; font-weight: 700;
+      border: 1px solid rgba(212,175,55,0.4); margin-bottom: 0.4rem;
+    }
+    .match-card h3 {
+      font-family: var(--font-heading); font-size: 1.4rem;
+      color: var(--text-main); margin-bottom: 0.3rem;
+    }
+    .match-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.8rem; }
+    .match-price {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: linear-gradient(135deg, var(--primary), #a67c3b);
+      color: #0b0704; padding: 0.4rem 1rem; border-radius: 20px;
+      font-size: 0.85rem; font-weight: 700; text-decoration: none;
+    }
+
+    /* Show matched card based on radio selection */
+    #flavor-velvet:checked ~ .match-results .match-velvet,
+    #flavor-citrus:checked ~ .match-results .match-citrus,
+    #flavor-cold:checked ~ .match-results .match-cold,
+    #flavor-bold:checked ~ .match-results .match-bold {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       SIGNATURE SPECIALS
+       ========================================================================== */
+    .specials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem; margin-top: 3rem;
+    }
+    .special-card {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: var(--radius-md); overflow: hidden;
+      transition: var(--transition); display: flex; flex-direction: column;
+    }
+    .special-card:hover {
+      transform: translateY(-8px); border-color: var(--primary);
+      box-shadow: var(--shadow-glow);
+    }
+    .special-img-box { position: relative; height: 220px; overflow: hidden; }
+    .special-img-box img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .special-card:hover .special-img-box img { transform: scale(1.08); }
+    .special-badge-tag {
+      position: absolute; top: 14px; left: 14px;
+      background: rgba(11,7,4,0.85); backdrop-filter: blur(8px);
+      color: var(--accent-gold); border: 1px solid rgba(212,175,55,0.4);
+      padding: 0.25rem 0.75rem; border-radius: 20px;
+      font-size: 0.75rem; font-weight: 700;
+    }
+    .special-content {
+      padding: 1.6rem; display: flex; flex-direction: column; flex-grow: 1;
+    }
+    .roast-meter {
+      display: flex; align-items: center; gap: 0.5rem;
+      margin-bottom: 0.8rem; font-size: 0.75rem; color: var(--text-muted);
+    }
+    .roast-bar {
+      flex: 1; height: 5px; background: rgba(255,255,255,0.1);
+      border-radius: 10px; overflow: hidden;
+    }
+    .roast-fill {
+      height: 100%; background: linear-gradient(90deg, #c59d5f, #e27a3f);
+      border-radius: 10px;
+    }
+    .special-title {
+      font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 0.4rem;
+    }
+    .special-desc {
+      color: var(--text-muted); font-size: 0.9rem;
+      margin-bottom: 1.2rem; flex-grow: 1;
+    }
+    .special-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .special-price {
+      font-family: var(--font-heading); font-size: 1.35rem;
+      font-weight: 700; color: var(--primary);
+    }
+
+    /* ==========================================================================
+       BEAN TO CUP PROCESS
+       ========================================================================== */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem; margin-top: 3.5rem;
+    }
+    .process-step {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: var(--radius-md); padding: 2.2rem 1.6rem;
+      text-align: center; position: relative; transition: var(--transition);
+    }
+    .process-step:hover {
+      background: var(--bg-card-hover); border-color: var(--primary);
+      transform: translateY(-6px);
+    }
+    .step-num {
+      position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+      width: 32px; height: 32px; background: var(--primary); color: #0b0704;
+      font-weight: 800; font-size: 0.9rem; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 10px rgba(197,157,95,0.4);
+    }
+    .step-icon { font-size: 2rem; color: var(--primary); margin: 1rem 0 1.2rem 0; }
+    .process-step h4 {
+      font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 0.6rem;
+    }
+    .process-step p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ==========================================================================
+       TESTIMONIALS
+       ========================================================================== */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem; margin-top: 3rem;
+    }
+    .testi-card {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: var(--radius-md); padding: 2rem;
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: var(--transition);
+    }
+    .testi-card:hover { border-color: var(--primary); transform: translateY(-4px); }
+    .stars { color: var(--accent-gold); font-size: 0.95rem; margin-bottom: 1rem; }
+    .testi-text {
+      color: var(--text-light); font-size: 0.95rem; font-style: italic;
+      margin-bottom: 1.5rem; line-height: 1.7;
+    }
+    .testi-author { display: flex; align-items: center; gap: 0.9rem; }
+    .author-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      object-fit: cover; border: 2px solid var(--primary);
+    }
+    .author-info h5 { font-size: 0.95rem; font-weight: 700; }
+    .author-info p { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* ==========================================================================
+       RESPONSIVE
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-title { font-size: 2.8rem; }
+      .match-card-inner { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem 3rem 1rem; }
+      .hero-title { font-size: 2.2rem; }
+      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+      .flavor-section { padding: 2rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow"></div>
+
+  <!-- Promo Banner -->
+  <div class="promo-banner">
+    ✨ Special Offer: Flat 15% off on your first artisanal blend order with code
+    <span class="promo-code">MOUNIFIRST15</span>
+  </div>
+
+  <div class="container">
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <div class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="live-pill">
+            <span class="pulse-dot"></span> Open Today Until 9:30 PM • Fresh Roast Ready
+          </div>
+          <h1 class="hero-title">Awaken Your Soul With <span>Artisan Brews</span></h1>
+          <p class="hero-desc">
+            Welcome to <strong>Mouni & Beans</strong>. We meticulously roast small batches of ethically sourced, single-origin Arabica beans to craft an extraordinary cup calibrated to perfection.
+          </p>
+          <div class="hero-cta">
+            <span class="btn btn-primary"><i class="fa-solid fa-mug-saucer"></i> Explore Menu</span>
+            <span class="btn btn-outline"><i class="fa-regular fa-calendar-check"></i> Reserve Table</span>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item"><h4>24+</h4><p>Artisan Blends</p></div>
+            <div class="stat-item"><h4>100%</h4><p>Single-Origin Arabica</p></div>
+            <div class="stat-item"><h4>4.9 ★</h4><p>Over 1,500 Reviews</p></div>
+          </div>
+        </div>
+        <div class="hero-img-wrap">
+          <div class="hero-img-card">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1000&auto=format&fit=crop" alt="Pour over coffee at Mouni and Beans" />
+          </div>
+          <div class="floating-badge">
+            <div class="badge-icon"><i class="fa-solid fa-seedling"></i></div>
+            <div>
+              <h5>Freshly Roasted Every Morning</h5>
+              <p>Single-origin direct trade estate coffees</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ INTERACTIVE FLAVOR MATCHER (Pure CSS) ═══════════ -->
+    <div class="flavor-section">
+      <div class="section-header" style="margin-bottom: 1.5rem;">
+        <span class="section-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Personalized Brew Finder</span>
+        <h2 class="section-title" style="font-size: 2.2rem;">What's Your Coffee Mood Today?</h2>
+        <p class="section-subtitle">Click your preferred flavor profile to find your handcrafted match.</p>
+      </div>
+
+      <!-- Hidden radio inputs (must be siblings of the labels & results) -->
+      <input type="radio" name="flavor" id="flavor-velvet" class="flavor-radio" checked>
+      <input type="radio" name="flavor" id="flavor-citrus" class="flavor-radio">
+      <input type="radio" name="flavor" id="flavor-cold" class="flavor-radio">
+      <input type="radio" name="flavor" id="flavor-bold" class="flavor-radio">
+
+      <div class="flavor-options">
+        <label for="flavor-velvet" class="flavor-label"><i class="fa-solid fa-cookie-bite"></i> Rich & Chocolatey</label>
+        <label for="flavor-citrus" class="flavor-label"><i class="fa-solid fa-lemon"></i> Bright & Floral Citrus</label>
+        <label for="flavor-cold" class="flavor-label"><i class="fa-solid fa-snowflake"></i> Iced, Silky & Sweet</label>
+        <label for="flavor-bold" class="flavor-label"><i class="fa-solid fa-fire"></i> Bold & Smoky Espresso</label>
+      </div>
+
+      <div class="match-results">
+        <!-- Velvet -->
+        <div class="match-card match-velvet">
+          <div class="match-card-inner">
+            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=600&auto=format&fit=crop" alt="Velvet Flat White" />
+            <div style="flex-grow: 1;">
+              <span class="match-tag">Comforting & Smooth</span>
+              <h3>Velvet Flat White</h3>
+              <p>Double ristretto shot with micro-foamed organic milk and subtle cocoa dust notes.</p>
+              <span class="match-price"><i class="fa-solid fa-cart-shopping"></i> Order This — ₹240</span>
+            </div>
+          </div>
+        </div>
+        <!-- Citrus -->
+        <div class="match-card match-citrus">
+          <div class="match-card-inner">
+            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" alt="Ethiopian Pour-Over V60" />
+            <div style="flex-grow: 1;">
+              <span class="match-tag">Bright & Fragrant</span>
+              <h3>Ethiopian Pour-Over V60</h3>
+              <p>Single-origin pour over highlighting bright bergamot citrus, honey, and floral jasmine aroma.</p>
+              <span class="match-price"><i class="fa-solid fa-cart-shopping"></i> Order This — ₹270</span>
+            </div>
+          </div>
+        </div>
+        <!-- Cold -->
+        <div class="match-card match-cold">
+          <div class="match-card-inner">
+            <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=600&auto=format&fit=crop" alt="Iced Spanish Caramel Latte" />
+            <div style="flex-grow: 1;">
+              <span class="match-tag">Sweet & Refreshing</span>
+              <h3>Iced Spanish Caramel Latte</h3>
+              <p>Slow drip espresso over creamy sweetened condensed milk and ice with cinnamon dusting.</p>
+              <span class="match-price"><i class="fa-solid fa-cart-shopping"></i> Order This — ₹260</span>
+            </div>
+          </div>
+        </div>
+        <!-- Bold -->
+        <div class="match-card match-bold">
+          <div class="match-card-inner">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=600&auto=format&fit=crop" alt="Double Cortado Reserve" />
+            <div style="flex-grow: 1;">
+              <span class="match-tag">Intense & Smoky</span>
+              <h3>Double Cortado Reserve</h3>
+              <p>Equal parts intense dark roast espresso and warm milk for rich, smoky chocolate undertones.</p>
+              <span class="match-price"><i class="fa-solid fa-cart-shopping"></i> Order This — ₹230</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ SIGNATURE SPECIALS ═══════════ -->
+    <div class="section-header" style="margin-top: 6rem;">
+      <span class="section-badge"><i class="fa-solid fa-award"></i> Chef & Roaster Selection</span>
+      <h2 class="section-title">Today's Signature Specials</h2>
+      <p class="section-subtitle">Specially curated small-batch roasts and barista favorites available today.</p>
+    </div>
+
+    <div class="specials-grid">
+      <div class="special-card">
+        <div class="special-img-box">
+          <span class="special-badge-tag">⭐ Today's Special</span>
+          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" alt="Salted Caramel Macchiato">
+        </div>
+        <div class="special-content">
+          <div class="roast-meter">
+            <span>Medium Roast</span>
+            <div class="roast-bar"><div class="roast-fill" style="width: 60%;"></div></div>
+            <span>6/10</span>
+          </div>
+          <h3 class="special-title">Salted Caramel Macchiato</h3>
+          <p class="special-desc">Steamed Madagascar vanilla bean milk marked with fresh espresso and house caramel.</p>
+          <div class="special-footer">
+            <span class="special-price">₹280</span>
+            <span class="btn btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;"><i class="fa-solid fa-plus"></i> Quick Add</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="special-card">
+        <div class="special-img-box">
+          <span class="special-badge-tag">❄️ Cold Nitro</span>
+          <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=600&auto=format&fit=crop" alt="Nitro Cold Brew">
+        </div>
+        <div class="special-content">
+          <div class="roast-meter">
+            <span>Dark & Bold</span>
+            <div class="roast-bar"><div class="roast-fill" style="width: 85%;"></div></div>
+            <span>8.5/10</span>
+          </div>
+          <h3 class="special-title">Nitro Cold Brew Reserve</h3>
+          <p class="special-desc">Slow-steeped 20 hours cold and poured under nitrogen for a silky Guinness-like head.</p>
+          <div class="special-footer">
+            <span class="special-price">₹290</span>
+            <span class="btn btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;"><i class="fa-solid fa-plus"></i> Quick Add</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="special-card">
+        <div class="special-img-box">
+          <span class="special-badge-tag">☕ Single Origin</span>
+          <img src="https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?q=80&w=600&auto=format&fit=crop" alt="Ethiopian Yirgacheffe">
+        </div>
+        <div class="special-content">
+          <div class="roast-meter">
+            <span>Light Roast</span>
+            <div class="roast-bar"><div class="roast-fill" style="width: 35%;"></div></div>
+            <span>3.5/10</span>
+          </div>
+          <h3 class="special-title">Ethiopian Yirgacheffe (250g)</h3>
+          <p class="special-desc">Bright bergamot aroma, jasmine notes, and citrus honey finish for whole bean brewing.</p>
+          <div class="special-footer">
+            <span class="special-price">₹850</span>
+            <span class="btn btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;"><i class="fa-solid fa-plus"></i> Quick Add</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ BEAN TO CUP PROCESS ═══════════ -->
+    <div class="section-header" style="margin-top: 6.5rem;">
+      <span class="section-badge"><i class="fa-solid fa-mortar-pestle"></i> The Craftsmanship</span>
+      <h2 class="section-title">The "Bean to Cup" Journey</h2>
+      <p class="section-subtitle">How every cup of Mouni & Beans travels from mountain estates to your table.</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+        <h4>Ethical Sourcing</h4>
+        <p>Direct fair-trade partnerships with high-altitude shade-grown organic coffee estates.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-icon"><i class="fa-solid fa-fire-burner"></i></div>
+        <h4>Micro Drum Roast</h4>
+        <p>Roasted in small 5kg batches to monitor thermodynamic roasting curves closely.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-icon"><i class="fa-solid fa-filter"></i></div>
+        <h4>Precision Brew</h4>
+        <p>Dialed in with 93°C water, mineral balance, and calibrated micron grind sizes.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div class="step-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        <h4>Pure Indulgence</h4>
+        <p>Poured with silky latte art and served with hot fresh bakery delicacies.</p>
+      </div>
+    </div>
+
+    <!-- ═══════════ TESTIMONIALS ═══════════ -->
+    <div class="section-header" style="margin-top: 6.5rem;">
+      <span class="section-badge"><i class="fa-solid fa-comment-dots"></i> Community Voices</span>
+      <h2 class="section-title">Loved By Coffee Lovers</h2>
+      <p class="section-subtitle">Hear what our regular guests, remote workers, and coffee sommeliers say.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Mouni & Beans is my absolute daily sanctuary. Their Velvet Flat White is unmatched anywhere in the city, and the ambient vibe is perfect for reading and work."</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Pooja S." class="author-avatar">
+          <div class="author-info"><h5>Pooja Sharma</h5><p>Architect & Regular Guest</p></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"The single origin whole beans changed how I brew pour-over at home. Incredible jasmine aroma, balanced acidity, and lightning-fast delivery."</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Rohan V." class="author-avatar">
+          <div class="author-info"><h5>Rohan Verma</h5><p>Specialty Coffee Enthusiast</p></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Booked their mobile espresso bar for our design studio's anniversary. Professional baristas, zero hassle, and stunning latte art!"</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop" alt="Ananya M." class="author-avatar">
+          <div class="author-info"><h5>Ananya Menon</h5><p>Creative Director</p></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

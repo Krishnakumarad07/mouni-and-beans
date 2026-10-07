@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mouni & Beans | Contact Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #c59d5f;
+      --primary-light: rgba(197, 157, 95, 0.12);
+      --accent-gold: #e5b94c;
+      --bg-dark: #0b0704;
+      --bg-card: #150e09;
+      --border-color: rgba(197, 157, 95, 0.16);
+      --text-main: #fcf9f6;
+      --text-muted: #b8aba0;
+      --text-light: #eae0d5;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 28px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      font-family: var(--font-body); background: var(--bg-dark);
+      color: var(--text-main); line-height: 1.6; overflow-x: hidden;
+    }
+
+    .ambient-glow {
+      position: fixed; top: -100px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(197,157,95,0.09) 0%, rgba(226,122,63,0.04) 40%, rgba(0,0,0,0) 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    .container {
+      max-width: 1240px; margin: 0 auto;
+      padding: 3rem 1.5rem 5rem 1.5rem;
+      position: relative; z-index: 1;
+    }
+
+    .section-header { text-align: center; max-width: 720px; margin: 0 auto 3.5rem auto; }
+    .section-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      text-transform: uppercase; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 2px; color: var(--primary);
+      background: var(--primary-light); padding: 0.38rem 1.1rem;
+      border-radius: 50px; margin-bottom: 0.85rem;
+      border: 1px solid var(--border-color);
+    }
+    .section-title {
+      font-family: var(--font-heading); font-size: 2.6rem; font-weight: 700;
+      color: var(--text-main); margin-bottom: 1rem; line-height: 1.22;
+    }
+    .section-subtitle { color: var(--text-muted); font-size: 1.05rem; }
+
+    /* Contact Grid */
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 3.5rem;
+    }
+    .contact-card {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg); padding: 2.5rem;
+    }
+    .contact-card h3 {
+      font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 1.5rem;
+    }
+
+    .info-item {
+      display: flex; gap: 1.2rem; margin-bottom: 2rem; align-items: flex-start;
+    }
+    .info-icon {
+      width: 48px; height: 48px; background: var(--primary-light);
+      color: var(--primary); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; flex-shrink: 0;
+    }
+    .info-content h5 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .info-content p, .info-content a {
+      color: var(--text-muted); font-size: 0.92rem; text-decoration: none;
+    }
+    .info-content a:hover { color: var(--primary); }
+    .hours-badge {
+      display: inline-block; background: rgba(46,204,113,0.15);
+      color: #2ecc71; padding: 0.2rem 0.6rem; border-radius: 4px;
+      font-size: 0.75rem; font-weight: 600; margin-top: 0.4rem;
+    }
+
+    .parking-note {
+      margin-top: 1.5rem; background: rgba(0,0,0,0.3);
+      border-radius: var(--radius-sm); border: 1px solid var(--border-color);
+      padding: 1rem; text-align: center;
+      font-size: 0.85rem; color: var(--text-muted);
+    }
+    .parking-note i { color: var(--primary); }
+
+    /* Form */
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label {
+      display: block; font-size: 0.9rem; font-weight: 600;
+      margin-bottom: 0.5rem; color: var(--text-light);
+    }
+    .form-control {
+      width: 100%; padding: 0.85rem 1.1rem;
+      background: #110b07; border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm); color: var(--text-main);
+      font-family: var(--font-body); font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    .form-control:focus {
+      outline: none; border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+    textarea.form-control { resize: vertical; min-height: 120px; }
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
+    }
+    .btn-submit {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 0.5rem; width: 100%; padding: 0.9rem;
+      background: linear-gradient(135deg, var(--primary), #a67c3b);
+      color: #0b0704; font-family: var(--font-body);
+      font-size: 0.95rem; font-weight: 600; border-radius: 30px;
+      border: none; cursor: pointer; transition: var(--transition);
+      box-shadow: 0 4px 18px rgba(197,157,95,0.35);
+    }
+    .btn-submit:hover {
+      background: linear-gradient(135deg, #dfb777, var(--primary));
+      transform: translateY(-2px);
+    }
+
+    /*
+       NOTE: Google Sites iframe blocks JS, so form submissions won't work
+       natively. For real form handling, use a Google Form embed or
+       a third-party service like Formspree/Tally. The form here is
+       kept as a visual placeholder.
+    */
+
+    @media (max-width: 992px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 600px) {
+      .container { padding: 2rem 1rem 3rem 1rem; }
+      .section-title { font-size: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Get In Touch</span>
+      <h2 class="section-title">Visit Us or Send A Message</h2>
+      <p class="section-subtitle">Have a question, catering inquiry, or want to reserve our quiet workspace table? We'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Info Column -->
+      <div class="contact-card">
+        <h3>Café Information</h3>
+
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="info-content">
+            <h5>Our Roastery & Café</h5>
+            <p>128 Coffee Quarter, 100 Feet Road<br>Indiranagar, Bengaluru, Karnataka 560038</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+          <div class="info-content">
+            <h5>Opening Hours</h5>
+            <p>Mon – Fri: 07:00 AM – 09:00 PM<br>Sat – Sun: 07:30 AM – 10:00 PM</p>
+            <span class="hours-badge"><i class="fa-solid fa-circle fa-2xs"></i> Open Today</span>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="info-content">
+            <h5>Call & Reservations</h5>
+            <p><a href="tel:+919876543210">+91 98765 43210</a> / <a href="tel:+918045678900">+91 (80) 4567-8900</a></p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="info-content">
+            <h5>Email Inquiries</h5>
+            <p><a href="mailto:hello@mouniandbeans.com">hello@mouniandbeans.com</a></p>
+          </div>
+        </div>
+
+        <div class="parking-note">
+          <i class="fa-solid fa-map-pin"></i> Free customer valet & bicycle parking available at entrance.
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-card">
+        <h3>Send Us a Message</h3>
+
+        <!--
+          TIP: Replace this form with a Google Forms embed or a
+          Formspree/Tally action URL for real submission handling.
+          Example: <form action="https://formspree.io/f/YOUR_ID" method="POST">
+        -->
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Full Name *</label>
+              <input type="text" class="form-control" placeholder="e.g. Mouni Sharma" required />
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" class="form-control" placeholder="mouni@example.com" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone / WhatsApp Number</label>
+              <input type="tel" class="form-control" placeholder="+91 98765 00000" />
+            </div>
+            <div class="form-group">
+              <label>Inquiry Type</label>
+              <select class="form-control">
+                <option value="General Inquiry">General Question</option>
+                <option value="Table Reservation">Table Reservation</option>
+                <option value="Coffee Catering">Catering & Private Events</option>
+                <option value="Bean Subscription">Wholesale & Bean Subscriptions</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Your Message or Booking Details *</label>
+            <textarea class="form-control" placeholder="Tell us how we can help you..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
